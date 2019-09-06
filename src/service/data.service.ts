@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';  // Import it up here
 export class DataService {
 
   constructor(private http: HttpClient) { }
-private _jsonURL = "~/src/data/data.json";
+private _jsonURL = "../src/data/data.json";
   getData() {
     return this.http.get(this._jsonURL, {responseType : 'json'})
   }
