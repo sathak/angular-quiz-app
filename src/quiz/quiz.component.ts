@@ -16,48 +16,11 @@ export class QuizComponent implements OnInit {
  constructor(private dataservice: DataService) { }
 
   ngOnInit() {
-    this.dataservice.getData().subscribe(response => {
-      console.log(response);
-       // this.data = response;
+    this.dataservice.getData('https://my-json-server.typicode.com/sathak/fakeDb/db').subscribe(response => {
+        this.data = response["data"];
       }
     );
-    // this.data = [
-    //   {
-    //     key: "Which is the largest country in the world by population?",
-    //     options: ["India", "USA", "China", "Russia"],
-    //     ans: "China",
-    //     active: true
-
-    //   },
-    //   {
-    //     key: "When did the second world war end?",
-    //     options: ["1945", "1939", "1944", "1942"],
-    //     ans: "1945",
-    //     active: false
-
-    //   },
-    //   {
-    //     key: "Which was the first country to issue paper currency?",
-    //     options: ["USA", "France", "Italy", "China"],
-    //     ans: "China",
-    //     active: false
-
-    //   },
-    //   {
-    //     key: "Which city hosted the 1996 Summer Olympics?",
-    //     options: ["Atlanta", "Sydney", "Athens", "Beijing"],
-    //     ans: "Atlanta",
-    //     active: false
-
-    //   },
-    //   {
-    //     key: "Who invented telephone?",
-    //     options: ["Albert Einstein", "Alexander Graham Bell", "Isaac Newton", "Marie Curie"],
-    //     ans: "Alexander Graham Bell",
-    //     active: false
-
-    //   },
-    // ]
+   
   }
   onSubmitClick(item, ans, data, index) {
     if (item.ans === ans) {
