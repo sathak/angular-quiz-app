@@ -13,11 +13,13 @@ export class QuizComponent implements OnInit {
   arrIndex = 0;
   currentQn = 1;
   showResult = false;
+  showLoader=true;
  constructor(private dataservice: DataService) { }
 
   ngOnInit() {
     this.dataservice.getData('https://my-json-server.typicode.com/sathak/fakeDb/db').subscribe(response => {
         this.data = response["data"];
+        this.showLoader=false;
       }
     );
    
