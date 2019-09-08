@@ -1,5 +1,6 @@
+
 .button {
-    display: block;
+   display:block;
      width: 115px;
     background: #4E9CAF;
     padding: 10px;
@@ -10,12 +11,17 @@
     list-style: none;
     text-decoration: none !important;
     cursor: pointer;
+    
 }
 .header{
   text-align: center;
 }
 .result,.question{
   text-align: center;
+}
+.result>.button{
+  display:inline-block;
+  top:10px;
 }
 .app-loading {
         position: relative;

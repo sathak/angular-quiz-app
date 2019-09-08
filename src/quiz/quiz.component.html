@@ -10,11 +10,11 @@
           <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
         </svg> 
       </div>
-			<div *ngFor="let item of data; index as i;">
+			<div *ngFor="let item of data; index as i;" class="col-md-12">
 				<div *ngIf="item.active">
 					<p id="question" class="question">{{item.key}}</p>
-					<div align="center">
-						<span class="buttons col-md-2" *ngFor="let option of item.options;">
+					<div align="center" class="col-md-12">
+						<span class="buttons col-md-6" *ngFor="let option of item.options;">
 						<a class='button' (click)="onSubmitClick(item,option,data,i)">{{option}}</a>
 					</span>
 				</div>
@@ -28,7 +28,11 @@
   <div *ngIf="showResult">
       <h1 class="header">Result</h1>
 		  <hr style="margin-bottom: 20px">
-      <div class="result"> <strong >Your Score : {{score}}</strong></div>
+      <div class="result"> 
+        <strong >Your Score : {{score}}</strong>
+        <br/>
+        <a class='button glyphicon glyphicon-home' routerLink="/">Home</a>
+        </div>
      
   </div>
 </div>
