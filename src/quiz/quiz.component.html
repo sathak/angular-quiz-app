@@ -12,7 +12,7 @@
       </div>
 			<div *ngFor="let item of data; index as i;" class="col-md-12">
 				<div *ngIf="item.active">
-					<p id="question" class="question">{{item.key}}</p>
+					<p id="question" class="question">{{currentQn}}. {{item.key}}</p>
 					<div align="center" class="col-md-12">
 						<span class="buttons col-md-6" *ngFor="let option of item.options;">
 						<a class='button' (click)="onSubmitClick(item,option,data,i)">{{option}}</a>
