@@ -11,7 +11,7 @@ export class QuizComponent implements OnInit {
   data = [];
   score = 0;
   arrIndex = 0;
-  currentQn = 1;
+  currentQn = 0;
   showResult = false;
   showLoader=true;
  constructor(private dataservice: DataService) { }
@@ -20,6 +20,7 @@ export class QuizComponent implements OnInit {
     this.dataservice.getData('https://my-json-server.typicode.com/sathak/fakeDb/db').subscribe(response => {
         this.data = response["data"];
         this.showLoader=false;
+        this.currentQn = 1;
       }
     );
    
