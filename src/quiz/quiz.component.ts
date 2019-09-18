@@ -17,12 +17,12 @@ export class QuizComponent implements OnInit {
   constructor(private dataservice: DataService) { }
 
   ngOnInit() {
-    this.dataservice.getData('https://my-json-server.typicode.com/sathak/fakeDb/db').subscribe(response => {
+    this.dataservice.getData('../../assets/data.json').subscribe(response => {
       this.data = response["data"];
       this.showLoader = false;
       this.currentQn = 1;
     }
-    );
+    ); 
 
   }
   onAnswerClick(item, ans, data, index) {
