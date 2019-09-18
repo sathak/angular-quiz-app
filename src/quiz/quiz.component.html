@@ -44,7 +44,16 @@
         
         <a class='button' routerLink="/">Home <i class="fa fa-home"></i></a>
         </div>
-     
+     	<div *ngFor="let item of data; index as i;" class="col-md-12">
+				
+					<p id="question" class="question">{{i+1}}. {{item.key}}</p>
+					<div align="center" class="col-md-12">
+						<span class="buttons col-md-6" *ngFor="let option of item.options; index as ai;">
+						<span [ngClass]="item.selectedIndex!=undefined&&item.selectedIndex==ai&&item.selectedans==item.ans?'buttonSelected':(item.selectedIndex!=undefined&&item.selectedans!=item.ans&&item.selectedIndex==ai?'buttonWrong':'button')" >{{option}}</span>
+					</span>
+				</div>
+			</div>
+
   </div>
 	</div>
 </div>
