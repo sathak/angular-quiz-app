@@ -13,30 +13,41 @@ export class QuizComponent implements OnInit {
   arrIndex = 0;
   currentQn = 0;
   showResult = false;
-  showLoader=true;
- constructor(private dataservice: DataService) { }
+  showLoader = true;
+  constructor(private dataservice: DataService) { }
 
   ngOnInit() {
     this.dataservice.getData('https://my-json-server.typicode.com/sathak/fakeDb/db').subscribe(response => {
-        this.data = response["data"];
-        this.showLoader=false;
-        this.currentQn = 1;
-      }
+      this.data = response["data"];
+      this.showLoader = false;
+      this.currentQn = 1;
+    }
     );
+
+  }
+  onAnswerClick(item, ans, data, index) {
+    item.selectedans = ans;
+    item.selectedIndex = index;
    
   }
-  onSubmitClick(item, ans, data, index) {
-    if (item.ans === ans) {
-      this.score += 1;
-    }
-    item.active = false;
-    this.arrIndex = index + 1;
-    if (this.arrIndex < data.length) {
-      data[this.arrIndex].active = true;
+  onPrevClick(currentIndex, data) {
+     this.currentQn -= 1;
+    data[currentIndex-1].active = false;
+    data[this.currentQn-1].active = true;
+  }
+   onNextClick(currentIndex, data) {
       this.currentQn += 1;
+    data[currentIndex-1].active = false;
+    data[currentIndex].active = true;   
+  }
+  onSubmitClick(data) {
+    this.showResult = true;
+ data.forEach(element => {
+    if(element.selectedans!=undefined &&element.selectedans==element.ans){
+      this.score+=1;
     }
-    if (this.arrIndex == data.length) {
-      this.showResult = true;
-    }
+});
+      
+   
   }
 }
