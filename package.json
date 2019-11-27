@@ -1,7 +1,9 @@
 {
   "name": "angular-mbscx2",
   "version": "0.0.0",
-  "private": true,
+   "engines": {
+    "node": "12.13.0"
+  },
   "dependencies": {
     "@angular/common": "6.0.0",
     "@angular/compiler": "6.0.0",
